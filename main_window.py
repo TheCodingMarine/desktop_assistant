@@ -1,5 +1,4 @@
 """Main window of application."""
-# Import libraries to create main window
 from PySide6.QtWidgets import QMainWindow, QFileDialog, QTextEdit
 from PySide6.QtCore import QSaveFile
 
@@ -9,7 +8,7 @@ class MainWindow(QMainWindow):
     def __init__(self):
         """Initialize main window."""
         super().__init__()
-        self.setWindowTitle("Budget App")
+        self.setWindowTitle("Desktop Assistant")
         self.resize(1200, 800)
         
         self.textEdit = QTextEdit()
@@ -54,7 +53,6 @@ class MainWindow(QMainWindow):
         
         # Add a separator to the edit menu
         self.edit_menu.addSeparator()
-
         
         # Add cut action to edit menu
         self.cut_action = self.edit_menu.addAction("Cut")
@@ -78,8 +76,7 @@ class MainWindow(QMainWindow):
         # Add find action to edit menu
         self.find_action = self.edit_menu.addAction("Find")
         self.find_action.triggered.connect(self.textEdit.find) 
-        
-
+    
     def save_file_as(self):
         """Function for writing data to file."""
         name = QFileDialog.getSaveFileName(self, "Save File")
