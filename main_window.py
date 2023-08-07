@@ -12,6 +12,8 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("Budget App")
         self.resize(1200, 800)
         
+        self.textEdit = QTextEdit()
+        
         #Create a menu bar
         self.menu_bar = self.menuBar()
         
@@ -25,11 +27,18 @@ class MainWindow(QMainWindow):
         #add open action to file menu
         self.open_action = self.file_menu.addAction("Open")
         self.file_dialog = QFileDialog()
-        self.open_action.triggered.connect(self.file_dialog.exec)
+        self.open_action.triggered.connect(self.read_file)
         
         #add save action to file menu
         self.save_action = self.file_menu.addAction("Save")
-        self.save_action.triggered.connect(self.save_file)
+        self.save_action.triggered.connect(self.save_file_as)
+        
+        # Add save as action to file menu
+        self.save_as_action = self.file_menu.addAction("Save As")
+        self.save_as_action.triggered.connect(self.save_file_as)
+        
+        # Add a separator to the file menu
+        self.file_menu.addSeparator()
         
         #add exit action to file menu
         self.exit_action = self.file_menu.addAction("Exit")
@@ -42,6 +51,10 @@ class MainWindow(QMainWindow):
         #add redo action to edit menu
         self.redo_action = self.edit_menu.addAction("Redo")
         self.redo_action.triggered.connect(self.textEdit.redo)
+        
+        #Add a separator to the edit menu
+        self.edit_menu.addSeparator()
+
         
         #add cut action to edit menu
         self.cut_action = self.edit_menu.addAction("Cut")
@@ -59,16 +72,15 @@ class MainWindow(QMainWindow):
         self.select_all_action = self.edit_menu.addAction("Select All")
         self.select_all_action.triggered.connect(self.textEdit.selectAll)
         
+        # Add a separator to the edit menu
+        self.edit_menu.addSeparator()
+        
         #add find action to edit menu
         self.find_action = self.edit_menu.addAction("Find")
-        self.find_action.triggered.connect(self.textEdit.find)
-        
-        #add replace action to edit menu
-        self.replace_action = self.edit_menu.addAction("Replace")
-        self.replace_action.triggered.connect(self.textEdit.replace)
+        self.find_action.triggered.connect(self.textEdit.find) 
         
 
-    def save_file(self):
+    def save_file_as(self):
         name = QFileDialog.getSaveFileName(self, "Save File")
         text = self.textEdit.toPlainText()
         try:
@@ -79,6 +91,13 @@ class MainWindow(QMainWindow):
         file.close()
     
     def editor(self):
-        self.textEdit = QTextEdit()
         self.setCentralWidget(self.textEdit)
+        
+    def read_file(self):
+        name = QFileDialog.getOpenFileName(self, "Open File")
+        if name[0]:
+            file = open(name[0], 'r')
+            with file:
+                text = file.read()
+                self.textEdit.setText(text) 
         
