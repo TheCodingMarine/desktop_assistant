@@ -12,8 +12,8 @@ def main():
     window = MainWindow()
     # Show editor on main window
     window.editor()
-    # Show the main window
     
+    # Show the main window 
     window.show()
 
     # Execute the application
