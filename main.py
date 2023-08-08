@@ -1,5 +1,5 @@
 """PySide 6 application to process inputs and formulate a budget."""
-from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog
+from PySide6.QtWidgets import QApplication
 from main_window import MainWindow
 
 def main():
