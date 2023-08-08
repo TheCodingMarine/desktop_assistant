@@ -1,5 +1,4 @@
 from PySide6.QtWidgets import QMenuBar, QMenu, QFileDialog, QTextEdit
-from PySide6.QtCore import QSaveFile      
  
 class MenuBar(QMenuBar):
     """Menu bar for main window."""
