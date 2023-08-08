@@ -7,4 +7,3 @@ class Tab2(QWidget):
 
         self.layout = QVBoxLayout(self)
         self.setLayout(self.layout)
-        self.layout.addWidget(QLabel("Tab 2"))
