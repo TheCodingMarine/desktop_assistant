@@ -19,5 +19,5 @@ class MainWindow(QMainWindow):
     def editor(self):
         """Create editor."""
         self.textEdit = QTextEdit()
-        
-        
+        self.setCentralWidget(self.textEdit)
+      
