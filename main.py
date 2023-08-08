@@ -9,8 +9,6 @@ def main():
 
     # Create an instance of the main window
     window = MainWindow()
-    # Show editor on main window
-    window.editor()
     
     # Show the main window 
     window.show()
