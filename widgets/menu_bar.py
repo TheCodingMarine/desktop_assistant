@@ -1,5 +1,5 @@
 from PySide6.QtWidgets import QMenuBar, QMenu, QFileDialog, QTextEdit
-from widgets.config_window import ConfigWindow
+from windows.config_window import ConfigWindow
  
 class MenuBar(QMenuBar):
     """Menu bar for main window."""
