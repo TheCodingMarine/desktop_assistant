@@ -10,7 +10,8 @@ class MainWindow(QMainWindow):
         """Initialize main window."""
         super(MainWindow, self).__init__(parent)
         self.setWindowTitle("Desktop Assistant")
-        self.resize(1200, 800)
+        # self.resize(1200, 800)
+        self.resize(800, 600)
         
         # Show menu bar on main window
         menu = MenuBar(self)
